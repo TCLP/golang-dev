@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/TCLP/golang-dev/leetcode/bit"
+	"github.com/TCLP/golang-dev/leetcode/sort"
 )
 
 func bitReverseRun() {
@@ -19,10 +20,17 @@ func bitHangmingWeightRun() {
 	fmt.Println(bit.HangmingWeight(3))
 }
 
+func sortQuickSortRun() {
+	var arr []int = []int{5, 3, 1, 4, 2}
+	sort.QuickSort(arr, 0, 4)
+	fmt.Println(arr)
+}
+
 func main() {
 	fmt.Println("this is leetcode")
 
 	bitReverseRun()
 	bitSingleNumberRun()
 	bitHangmingWeightRun()
+	sortQuickSortRun()
 }
