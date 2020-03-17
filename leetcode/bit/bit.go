@@ -1,5 +1,7 @@
 package bit
 
+import "fmt"
+
 /*
 	题目：uint32数的二进制位的反转
 	方法：取出uint32的每一个二进制位，然后左移对应的位数之后于结果相加
@@ -37,4 +39,70 @@ func HangmingWeight(nums uint32) uint32 {
 
 	}
 	return count
+}
+
+// leetcode:1160
+func CountCharacters(words []string, chars string) int {
+	ret_words := make([]string, 0, 100)
+	ret_len := 0
+
+	cmap := make(map[int32]int32, 100)
+	for _, c := range chars {
+		cmap[c] += 1
+	}
+
+	for _, w := range words {
+		ret_flag := true
+
+		wmap := make(map[int32]int32, 100)
+		for _, c := range w {
+			wmap[c] += 1
+		}
+
+		for k, v := range wmap {
+			if cmap[k] < v {
+				ret_flag = false
+			}
+		}
+		if ret_flag {
+			ret_words = append(ret_words, w)
+		}
+
+	}
+
+	for _, w := range ret_words {
+		fmt.Println(w)
+		ret_len += len(w)
+	}
+
+	return ret_len
+}
+
+// leetcode:231
+func IsPowerOfTwo(n int) bool {
+	if n <= 0 {
+		return false
+	}
+	for n != 0 {
+		if n == 1 {
+			return true
+		}
+		if n%2 != 0 {
+			return false
+		}
+		n = n / 2
+	}
+	return true
+}
+
+// leetcode:268
+func MissingNumber(nums []int) int {
+	ret := 0
+	for i := 0; i <= len(nums); i++ {
+		ret ^= i
+	}
+	for _, num := range nums {
+		ret ^= num
+	}
+	return ret
 }

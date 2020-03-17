@@ -20,6 +20,21 @@ func bitHangmingWeightRun() {
 	fmt.Println(bit.HangmingWeight(3))
 }
 
+func bitCountCharactersRun() {
+	chars := "welldonehoneyr"
+	words := []string{"hello", "world", "leetcode"}
+	fmt.Println(bit.CountCharacters(words, chars))
+}
+
+func bitIsPowerOfTwoRun() {
+	fmt.Println(bit.IsPowerOfTwo(3))
+}
+
+func bitMissingNumberRun() {
+	n := []int{1, 3, 2, 5, 0}
+	fmt.Println(bit.MissingNumber(n))
+}
+
 func sortQuickSortRun() {
 	var arr []int = []int{5, 3, 1, 4, 2}
 	sort.QuickSort(arr, 0, 4)
@@ -32,5 +47,8 @@ func main() {
 	bitReverseRun()
 	bitSingleNumberRun()
 	bitHangmingWeightRun()
+	bitCountCharactersRun()
+	bitIsPowerOfTwoRun()
+	bitMissingNumberRun()
 	sortQuickSortRun()
 }
